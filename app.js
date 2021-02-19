@@ -1,6 +1,17 @@
 const container = document.getElementById('container');
-const colors = ['#e74c3c', '#8e44ad', '#3498db', 'e67e22', '#2ecc71'];
+// const colors = ['#e74c3c', '#8e44ad', '#3498db', 'e67e22', '#2ecc71'];
+
 const squares = 2400;
+const randomColors = [];
+
+
+for (let i = 0; i < 2000; i++) {
+    let r = Math.floor(Math.random() * 255 + 1);
+    let g = Math.floor(Math.random() * 255 + 1);
+    let b = Math.floor(Math.random() * 255 + 1);
+    let color = [`rgb(${r}, ${g}, ${b})`];
+    randomColors.push(color);
+}
 
 for (let i = 0; i < squares; i++) {
     const square = document.createElement('div');
@@ -13,6 +24,9 @@ for (let i = 0; i < squares; i++) {
 
 function setColor(element) {
     const color = getRandomColor();
+
+    element.style.background = color;
+    element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
 };
 
 function removeColor(element) {
@@ -20,5 +34,5 @@ function removeColor(element) {
 };
 
 function getRandomColor() {
-    return colors[Math.floor(Math.random() * colors.length)]
+    return randomColors[Math.floor(Math.random() * randomColors.length)]
 }
