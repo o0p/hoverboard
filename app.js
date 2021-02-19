@@ -7,6 +7,18 @@ for (let i = 0; i < squares; i++) {
     square.classList.add('square');
     container.appendChild(square);
     square.addEventListener('mouseover', () => {setColor(square)});
-    square.addEventListener('mousleave', () => {setColor(square)});
+    square.addEventListener('mousleave', () => {removeColor(square)});
     container.appendChild(square);
+}
+
+function setColor(element) {
+    const color = getRandomColor();
+};
+
+function removeColor(element) {
+
+};
+
+function getRandomColor() {
+    return colors[Math.floor(Math.random() * colors.length)]
 }
